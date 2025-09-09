@@ -24,15 +24,12 @@ class GoogleSheetsService {
   async createFormSheet(form: SurveyForm) {
     const spreadsheetId = this.getSpreadsheetId();
     
-    // Save form metadata to 'Forms' sheet
     try {
-      // First, try to get the Forms sheet
       await this.sheets.spreadsheets.values.get({
         spreadsheetId,
         range: 'Forms!A1',
       });
     } catch (error) {
-      // If Forms sheet doesn't exist, create it
       await this.sheets.spreadsheets.batchUpdate({
         spreadsheetId,
         requestBody: {
