@@ -18,3 +18,7 @@ export function formatDate(dateString: string): string {
     minute: '2-digit',
   });
 }
+
+export function add(a: string, b: string){
+  return a+b;
+}
